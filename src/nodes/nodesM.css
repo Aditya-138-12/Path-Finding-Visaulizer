@@ -1,0 +1,52 @@
+.node {
+    width: 30px;
+    /* Width of each node */
+    height: 30px;
+    /* Height of each node */
+    background-color: white;
+    /* Default background color */
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    /* Border color */
+    display: inline-flex;
+    /* Align nodes in a grid */
+    justify-content: center;
+    /* Center content horizontally */
+    align-items: center;
+    /* Center content vertically */
+    font-size: 12px;
+    /* Font size for value display */
+    text-align: center;
+    /* Center text horizontally */
+
+}
+
+.node-start {
+    background-color: #2ecc71;
+    /* Green color for start node */
+}
+
+.node-finish {
+    background-color: #e74c3c;
+    /* Red color for finish node */
+}
+
+.path-node {
+    background-color: #f1c40f;
+    /* Yellow color for path node */
+}
+
+.wall-node {
+    background-color: black;
+    /* Gray color for wall node */
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(50, 30px);
+    /* 50 columns, each 20px wide */
+    grid-template-rows: repeat(30, 30px);
+    /* 20 rows, each 20px tall */
+    gap: 1px;
+    /* Space between nodes */
+    margin: 100px 200px;
+}
