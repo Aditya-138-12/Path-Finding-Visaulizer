@@ -30,9 +30,22 @@
     /* Red color for finish node */
 }
 
-.path-node {
-    background-color: #f1c40f;
-    /* Yellow color for path node */
+.animated-path-node {
+    animation: shortestPathAnimation 0.5s forwards linear;
+}
+
+@keyframes shortestPathAnimation {
+    from {
+        background-color: white;
+        background-color: #00ff2a;
+        background-color: aqua;
+        background-color: rgb(255, 0, 128);
+    }
+
+    to {
+        background-color: yellow;
+        border: 1px solid yellow;
+    }
 }
 
 .wall-node {
@@ -46,7 +59,7 @@
     /* 50 columns, each 20px wide */
     grid-template-rows: repeat(30, 30px);
     /* 20 rows, each 20px tall */
-    gap: 1px;
+    gap: 0px;
     /* Space between nodes */
     margin: 100px 200px;
 }

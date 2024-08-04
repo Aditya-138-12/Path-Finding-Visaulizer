@@ -16,7 +16,7 @@ const PathFinder = () => {
                     row,
                     col,
                     isStart: row === 19 && col === 0,
-                    isFinish: row === 19 && col === 49,
+                    isFinish: row === 8 && col === 20,
                     isWall: false,
                 });
             }
@@ -29,6 +29,9 @@ const PathFinder = () => {
     const [isRunning, setIsRunning] = useState(false);
     const [shortestPath, setShortestPath] = useState([]);
     const [isMousePressed, setIsMousePressed] = useState(false);
+    const [animatedPath, setAnimatedPath] = useState([]);
+
+
 
     // Handle mouse down event
     const handleMouseDown = (row, col) => {
@@ -63,6 +66,8 @@ const PathFinder = () => {
 
     const handleRunAlgorithm = () => {
         setIsRunning(true);
+        setAnimatedPath([]); // Clear previous animated path
+        setShortestPath([]);
         const startNode = grid.flat().find((node) => node.isStart);
         const finishNode = grid.flat().find((node) => node.isFinish);
 
@@ -71,6 +76,19 @@ const PathFinder = () => {
         const path = dijkstra(grid, startNode, finishNode);
         setShortestPath(path);
         setIsRunning(false);
+    };
+    useEffect(() => {
+        if (shortestPath.length > 0) {
+            animateShortestPath(shortestPath);
+        }
+    }, [shortestPath]);
+
+    const animateShortestPath = (path) => {
+        path.forEach((node, index) => {
+            setTimeout(() => {
+                setAnimatedPath((prev) => [...prev, node]);
+            }, 25 * index); // Adjust the interval for animation speed
+        });
     };
 
     return (
@@ -87,6 +105,7 @@ const PathFinder = () => {
                         isStart={node.isStart}
                         isFinish={node.isFinish}
                         isPath={shortestPath.includes(node)}
+                        isAnimatedPath={animatedPath.includes(node)}
                         isWall={node.isWall}
                         onMouseDown={() => handleMouseDown(node.row, node.col)}
                         onMouseEnter={() => handleMouseMove(node.row, node.col)}

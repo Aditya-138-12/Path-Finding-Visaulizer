@@ -1,15 +1,15 @@
 import React from 'react';
 import './nodesM.css';
 
-const Nodes = ({ row, col, isStart, isFinish, isPath, isWall, onMouseDown, onMouseEnter }) => {
+const Nodes = ({ row, col, isStart, isFinish, isPath, isAnimatedPath, isWall, onMouseDown, onMouseEnter }) => {
     let className = 'node';
 
     if (isStart) {
         className += ' node-start';
     } else if (isFinish) {
         className += ' node-finish';
-    } else if (isPath) {
-        className += ' path-node';
+    } else if (isAnimatedPath) {
+        className += ' animated-path-node';
     } else if (isWall) {
         className += ' wall-node';
     }
