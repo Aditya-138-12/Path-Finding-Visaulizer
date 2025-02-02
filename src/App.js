@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Nodes from './nodes/nodes';
-import React from "react";
+import React, {useState, useEffect} from "react";
 
 function App() {
   return (
