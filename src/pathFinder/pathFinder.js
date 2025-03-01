@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Nodes from "../nodes/nodes"; // Ensure correct path to Nodes component
 import "../nodes/nodesM.css";
 import { dijkstra } from "../algorithms/dijkastra";
